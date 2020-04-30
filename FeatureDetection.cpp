@@ -4,6 +4,7 @@
 
 int fd::kaze(const Mat& srcImg, vector<KeyPoint>& keyPoints, Mat& descriptor)
 {
+	//bu xie buxie bu xie
 	if (srcImg.empty())
 	{
 		return -1;
@@ -73,17 +74,17 @@ void fd::drawKeypointImage(string name, const Mat& srcImg, vector<KeyPoint>& key
 
 void fd::getFiles(string path, vector<string>& files)
 {
-	//ÎÄ¼þ¾ä±ú  
+	//ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½  
 	intptr_t   hFile = 0;
-	//ÎÄ¼þÐÅÏ¢  
+	//ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢  
 	struct _finddata_t fileinfo;
 	string p;
 	if ((hFile = _findfirst(p.assign(path).append("\\*").c_str(), &fileinfo)) != -1)
 	{
 		do
 		{
-			//Èç¹ûÊÇÄ¿Â¼,µü´úÖ®  
-			//Èç¹û²»ÊÇ,¼ÓÈëÁÐ±í  
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼,ï¿½ï¿½ï¿½ï¿½Ö®  
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
 			if ((fileinfo.attrib & _A_SUBDIR))
 			{
 				if (strcmp(fileinfo.name, ".") != 0 && strcmp(fileinfo.name, "..") != 0)
@@ -145,7 +146,7 @@ void fd::getDescriptors(vector<string> imageFilesList, string method, vector<Mat
 }
 
 
-//Ã»ÓÐÓÃµ½ººÃ÷¾àÀë
+//Ã»ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int fd::calHammingDistance(cv::Mat baseImg, cv::Mat targetImg)
 {
 	baseImg.convertTo(baseImg, CV_8U);
@@ -164,7 +165,7 @@ int fd::calHammingDistance(cv::Mat baseImg, cv::Mat targetImg)
 	return distance;
 }
 
-//Ê¹ÓÃÅ·ÊÏ¾àÀë¼ÆËã
+//Ê¹ï¿½ï¿½Å·ï¿½Ï¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 double fd::calEuclideanDistance(cv::Mat baseImg, cv::Mat targetImg)
 {
 	cv::Mat difference;
